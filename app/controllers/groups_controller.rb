@@ -1,19 +1,10 @@
-class UsersController < ApplicationController
-
+class GroupsController < ApplicationController
     def index
         @users = User.all
     end
 
     def show
         @user = User.find(params[:id])
-    end
-
-    def login
-
-    end
-
-    def signin
-
     end
 
     def new

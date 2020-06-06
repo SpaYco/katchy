@@ -1,2 +1,0 @@
-class GroupController < ApplicationController
-end
