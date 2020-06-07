@@ -3,6 +3,8 @@ class CreateRecipes < ActiveRecord::Migration[6.0]
     create_table :recipes do |t|
       t.references :author, foreign_key: { to_table: 'users' }
       t.string :name
+      t.string :ingredients
+      t.string :video
       t.integer :amount
       t.references :group
       t.timestamps

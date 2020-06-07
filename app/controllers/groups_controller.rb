@@ -1,30 +1,41 @@
 class GroupsController < ApplicationController
+    before_action :logged?
+    before_action :set_user
     def index
-        @users = User.all
+        @groups = Group.all
     end
 
     def show
-        @user = User.find(params[:id])
+        @group = Group.find(params[:id])
     end
 
     def new
-        @user = User.new
+        @group = Group.new
     end
 
     def create
-        @user = User.new(user_params)
+        @group = Group.new(group_params)
         respond_to do |format|
-            if @user.save
-                format.html { redirect_to @user, notice: 'User was successfully created.' }
-                format.json { render :show, status: :created, location: @user }
+            if @group.save
+                format.html { redirect_to @group, notice: 'Group was successfully created.' }
+                format.json { render :show, status: :created, location: @group }
               else
                 format.html { render :new }
-                format.json { render json: @user.errors, status: :unprocessable_entity }
+                format.json { render json: @group.errors, status: :unprocessable_entity }
             end
         end
     end
     private
-    def user_params
-        params.require(:user).permit(:name)
+    def logged?
+        if cookies[:id] == "" || cookies[:id] == nil
+            flash[:danger] = "Please log in."
+            redirect_to signin_path 
+        end
+    end
+    def set_user
+        @current_user = User.find(cookies[:id])
+    end
+    def group_params
+        params.require(:group).permit(:name, :icon)
     end
 end

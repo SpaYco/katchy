@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+    before_action :logged?
+    before_action :set_user
     def index
         @users = User.all
     end
@@ -33,6 +35,15 @@ class UsersController < ApplicationController
         end
     end
     private
+    def logged?
+        if cookies[:id] == "" || cookies[:id] == nil
+            flash[:danger] = "Please log in."
+            redirect_to signin_path 
+        end
+    end
+    def set_user
+            @current_user = User.find(cookies[:id])
+    end
     def user_params
         params.require(:user).permit(:name)
     end

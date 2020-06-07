@@ -1,1 +1,4 @@
-<p> User : <%= @recipe.name %>
+<p> Recipe : <%= @recipe.name %> </p>
+<p> ingredients: <%= @recipe.ingredients %> </p>
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/<%= get_youtube_id(@recipe.video) %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p> amount: <%= @recipe.amount %> </p>

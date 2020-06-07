@@ -7,8 +7,14 @@
 <label for="group_id">Group name</label>
 <%= f.collection_select :group_id, Group.order(:name),:id,:name, include_blank: true %>
 <br>
-<label for="amount">amount</label>
+<label for="ingredients">Recipe Ingredients</label>
+<%= f.text_field :ingredients%>
+<br>
+<label for="video">video link</label>
+<%= f.text_field :video %>
+<br>
+<label for="amount">amount (in minutes)</label>
 <%= f.number_field :amount%>
-
+<br>
 <%= f.submit "Submit"%>
 <%end%>

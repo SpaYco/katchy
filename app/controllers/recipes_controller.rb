@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+    before_action :logged?
+    before_action :set_user
     def index
         @recipes = Recipe.all
     end
@@ -12,7 +14,7 @@ class RecipesController < ApplicationController
     end
 
     def create
-        @recipe = User.first.recipes.new(user_params)
+        @recipe = @current_user.recipes.new(user_params)
         respond_to do |format|
             if @recipe.save
                 format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
@@ -24,7 +26,17 @@ class RecipesController < ApplicationController
         end
     end
     private
+    def logged?
+        if cookies[:id] == "" || cookies[:id] == nil
+            flash[:danger] = "Please log in."
+            redirect_to signin_path 
+        end
+    end
+    def set_user
+        @current_user = User.find(cookies[:id])
+    end
+    
     def user_params
-        params.require(:recipe).permit(:name, :author_id, :group_id, :amount)
+        params.require(:recipe).permit(:name, :group_id, :amount, :video, :ingredients)
     end
 end
