@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2020_06_05_130947) do
   create_table "recipes", force: :cascade do |t|
     t.integer "author_id"
     t.string "name"
+    t.string "ingredients"
+    t.string "video"
     t.integer "amount"
     t.integer "group_id"
     t.datetime "created_at", precision: 6, null: false

@@ -1,0 +1,10 @@
+<% if @group.errors.any? %> <div id="error_explanation"> <h2><%= pluralize(@group.errors.count, "error") %> prohibited this post from being saved:</h2> <ul> <% @group.errors.full_messages.each do |msg| %> <li><%= msg %></li> <% end %> </ul> </div> <% end %> 
+<%= form_for @group do |f|%>
+
+<label for="name">group name</label>
+<%= f.text_field :name%>
+<label for="icon">icon link</label>
+<%= f.text_field :icon%>
+<%= f.submit "Submit"%>
+<br>
+<%end%>
