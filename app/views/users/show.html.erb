@@ -1,1 +1,12 @@
-<p> User : <%= @user.name %>
+<p class="tip">Recipes By <%= @user.name %>
+<% @recipes.each do |r|%>
+<div class="recipe-container">
+<p class="name"><a class="n-link" href="<%= recipes_path + "/" + r.id.to_s%>"><%= r.name %></a></p>
+<p>Ingredients: </p>
+<div class="ingredients"> <%= simple_format(r.ingredients).html_safe%></div>
+<p> How To Video: </p>
+<iframe class="embed" src="https://www.youtube.com/embed/<%= get_youtube_id(r.video) %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>amount: <%= r.amount %></p>
+<a class="view-link" href="<%= recipes_path + "/" + r.id.to_s%>">View</a>
+</div>
+<%end%>

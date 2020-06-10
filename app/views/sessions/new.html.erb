@@ -1,5 +1,8 @@
-<h1>Login</h1>
+<div class="form-div">
    <%= form_tag sessions_path, :method => :post do %>
+   <a class="session-link" href="<%=new_user_path%>">Sign Up</a>
+   <label for="id" >Username</label>
    <%= number_field_tag :id %>
    <%= submit_tag "Login"%>
 <%end%>
+</div>

@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   before_action :logged?
   before_action :set_user
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.all.includes([:author])
   end
 
   def show
@@ -39,6 +39,7 @@ class RecipesController < ApplicationController
 
   def set_user
     @current_user = User.find(cookies[:id])
+    @logout = "- <a href=\"#{signout_path}\" class=\"logout\">Logout!</a>"
   end
 
   def user_params

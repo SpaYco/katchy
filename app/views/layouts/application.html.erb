@@ -10,12 +10,40 @@
   </head>
 
   <body>
- <div class="container">
-  <% flash.each do |message_type, message| %>
-    <div class="alert alert-<%= message_type %>"><%= message %>
-    <% end %>
+  <% if cookies[:id].to_i.positive? %>
+  <nav id="nav">
+  <hr>
+  <p class="user-tab">Hello, <a href="<%= users_path + "/" + @current_user.id.to_s %>"><%=  @current_user.name %></a> <%= sanitize @logout %></p>
+  <hr>
+  <a href="<%= users_path %>">All Users</a>
+  <hr>
+  <a href="<%= groups_path %>">All Groups</a>
+  <hr>
+  <a href="<%= recipes_path %>">All Recipes</a>
+  <hr>
+  <button id="menu-btn" onclick="hamburgerBtn()">	&#9776;</button>
+  </nav>
+  <%end%>
+    <main>
+    <% if flash[:danger] || flash[:success] %>
+ <div class="flash-container">
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %>
     </div>
-  
+    <% end %>
+  </div>
+  <% end %>
     <%= yield %>
+    
+    <div id="new">
+    <button id="new-btn"><svg id="new-svg" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg></button>
+  <% if cookies[:id].to_i.positive? %>
+    <a class="add" id="add-group" href="<%= new_group_path %>">New Group</a>
+    <a class="add" id="add-recipe" href="<%= new_recipe_path %>">New Recipe</a>
+    <%else %>
+    <a class="add" id="add-group" href="<%= new_user_path %>">New User</a>
+    <%end%>
+    </div>
+    </main>
   </body>
 </html>

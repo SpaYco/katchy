@@ -1,4 +1,6 @@
 <% @groups.each do |u| %>
-<p> User : <%= u.name %></p>
-<img src="<%= u.icon %>" alt="<%= u.name %>" width="500" height="600">
+<div class="groups-container">
+<a href="<%=groups_path + "/" + u.id.to_s%>"><%= u.name %></a>
+<img src="<%=u.icon%>" alt="<%= u.name%>">
+</div>
 <% end %>
