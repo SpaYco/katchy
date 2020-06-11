@@ -308,3 +308,7 @@ input[type="submit"]:hover {
     font-size: 22px;
     padding-bottom: 1px;
 }
+.search_form input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.575);
+    font-size: 12px;
+}
