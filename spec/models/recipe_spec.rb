@@ -4,8 +4,10 @@ require 'rails_helper'
 describe 'Groups', type: :feature do
   before :each do
     User.create(name: 'SpaYco')
-    Group.create(name: 'morning session', icon: 'https://i.picsum.photos/id/498/200/300.jpg')
-    User.first.recipes.create(name: 'space', amount: 45, group_id: 1)
+    Group.create(name: 'morning session', icon: 'https://i.imgur.com/CUG0Aof.jpg')
+    # rubocop:disable Layout/LineLength
+    User.first.recipes.create(name: 'space', ingredients: 'azdasd asd azed azdazd', video: 'https://youtu.be/p1NURlot8Lo', amount: 45, group_id: 1)
+    # rubocop:enable Layout/LineLength
   end
   it 'creates a recipe' do
     expect(Recipe.first.name).to eql('space')

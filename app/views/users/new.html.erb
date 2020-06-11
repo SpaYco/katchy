@@ -1,8 +1,11 @@
-<% if @user.errors.any? %> <div id="error_explanation"> <h2><%= pluralize(@user.errors.count, "error") %> prohibited this post from being saved:</h2> <ul> <% @user.errors.full_messages.each do |msg| %> <li><%= msg %></li> <% end %> </ul> </div> <% end %> 
-<%= form_for @user do |f|%>
 
+<div class="form-div">
+<%= form_for @user do |f|%>
+   <a class="session-link" href="<%=signin_path%>">Login</a>
+<% if @user.errors.any? %> <div id="error_explanation"> <h2><%= pluralize(@user.errors.count, "error") %> prohibited this post from being saved:</h2> <ul> <% @user.errors.full_messages.each do |msg| %> <li><%= msg %></li> <% end %> </ul> </div> <% end %> 
 <label for="name">Username</label>
 <%= f.text_field :name%>
 <br>
 <%= f.submit "Submit"%>
 <%end%>
+</div>

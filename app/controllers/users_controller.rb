@@ -1,17 +1,14 @@
 class UsersController < ApplicationController
-  before_action :logged?
-  before_action :set_user
+  before_action :logged?, except: %i[new create]
+  before_action :set_user, except: %i[new create]
   def index
     @users = User.all
   end
 
   def show
     @user = User.find(params[:id])
+    @recipes = Recipe.where({ author_id: params[:id] })
   end
-
-  def login; end
-
-  def signin; end
 
   def new
     @user = User.new
@@ -43,6 +40,7 @@ class UsersController < ApplicationController
 
   def set_user
     @current_user = User.find(cookies[:id])
+    @logout = "- <a href=\"#{signout_path}\" class=\"logout\">Logout!</a>"
   end
 
   def user_params

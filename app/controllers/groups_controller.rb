@@ -7,6 +7,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @recipes = Recipe.where({ group_id: params[:id] }).includes([:author])
   end
 
   def new
@@ -39,6 +40,7 @@ class GroupsController < ApplicationController
 
   def set_user
     @current_user = User.find(cookies[:id])
+    @logout = "- <a href=\"#{signout_path}\" class=\"logout\">Logout!</a>"
   end
 
   def group_params

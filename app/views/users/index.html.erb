@@ -1,3 +1,8 @@
+<div id="users-container">
 <% @users.each do |u| %>
-<p> User : <%= u.name %>
+<div class="users">
+<p><%= u.name %></p>
+<a href="<%= users_path + "/" + u.id.to_s%>">view</a>
+</div>
 <% end %>
+</div>

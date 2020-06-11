@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get '/signin' , to: 'sessions#new'
   resources :groups, only: [:new, :create, :index, :show]
   resources :recipes, only: [:new, :create, :index, :show]
+  get '/search', to: 'recipes#search'
+  root 'users#index'
 end
