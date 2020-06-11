@@ -14,10 +14,8 @@ describe 'Groups', type: :feature do
 
   it 'creates a group' do
     visit '/groups/new'
-    within('form') do
       fill_in 'group[name]', with: 'first'
       fill_in 'group[icon]', with: 'https://i.imgur.com/CUG0Aof.jpg'
-    end
     click_button 'Submit'
     expect(page).to have_content 'first'
   end
