@@ -12,6 +12,6 @@ require 'rails_helper'
 # end
 RSpec.describe RecipeHelper, type: :helper do
   it 'gets youtube id' do
-    expect(helper.get_youtube_id("https://youtu.be/p1NURlot8Lo")).to eq('p1NURlot8Lo')
+    expect(helper.get_youtube_id('https://youtu.be/p1NURlot8Lo')).to eq('p1NURlot8Lo')
   end
 end

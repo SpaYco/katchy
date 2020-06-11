@@ -9,8 +9,8 @@ describe 'Users', type: :feature do
 
   it 'creates a user' do
     visit '/users/new'
-    within('form') do 
-        fill_in 'user[name]', with: "SpaYso"
+    within('form') do
+      fill_in 'user[name]', with: 'SpaYso'
     end
     click_button 'Submit'
     visit '/signin'

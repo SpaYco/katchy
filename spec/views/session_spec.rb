@@ -3,7 +3,7 @@ require 'rails_helper'
 
 describe 'Sessions', type: :feature do
   before :each do
-    user = User.create(name: 'SpaYco')
+    User.create(name: 'SpaYco')
   end
 
   it 'logs me in' do

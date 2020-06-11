@@ -33,8 +33,8 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara'
   gem 'rspec-rails'
-  gem 'webdrivers'
   gem 'sqlite3', '~> 1.4'
+  gem 'webdrivers'
 end
 
 group :development do

@@ -13,6 +13,13 @@
   <% if cookies[:id].to_i.positive? %>
   <nav id="nav">
   <hr>
+  <%= form_tag search_path, :method => 'get', :class => 'search_form' do %>
+  <p>
+    <%= text_field_tag :search, params[:search], placeholder: "enter a search here" %>
+    <%= submit_tag '🔍', :name => nil %>
+  </p>
+<% end %>
+  <hr>
   <p class="user-tab">Hello, <a href="<%= users_path + "/" + @current_user.id.to_s %>"><%=  @current_user.name %></a> <%= sanitize @logout %></p>
   <hr>
   <a href="<%= users_path %>">All Users</a>

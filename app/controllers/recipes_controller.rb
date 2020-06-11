@@ -9,6 +9,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
+  def search
+    @recipes = Recipe.where(name: params[:search]).includes([:author])
+  end
+
   def new
     @recipe = User.first.recipes.new
   end

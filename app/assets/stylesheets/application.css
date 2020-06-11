@@ -200,7 +200,7 @@ main {
     justify-self: center;
     height: 100vh !important;
 }
-form {
+form:not(.search_form) {
     border: 5px solid #9980FA;
     border-radius: 15px;
     background-color: #5758BB;
@@ -284,4 +284,27 @@ input[type="submit"]:hover {
     color: whitesmoke;
     font-family: 'Noto Sans', sans-serif;
     font-weight: 700;
+}
+.search_form {
+    
+    padding: 0 !important;
+}
+.search_form input[type="submit"]{
+        height: auto;
+        width: auto;
+        background: none;
+        border: none;
+        font-size: 35px;
+        color: rgba(0, 68, 255, 0.562);  
+        text-shadow: 0 0 0 white;
+        cursor: pointer;
+}
+.search_form input[type="text"]{
+    border: none !important;
+    border-bottom: 5px solid white !important;
+    border-radius: 0px !important;
+    background: transparent;
+    color: white;
+    font-size: 22px;
+    padding-bottom: 1px;
 }
