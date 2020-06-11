@@ -1,5 +1,6 @@
 ## Katchy
 - This is a website for Creating Recipes
+![screenshot](./screenshot.PNG)
 ## What it does
 - Create Users
 - Create a group where you can add recipes in
