@@ -4,8 +4,8 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    if User.where(id: params[:id]).exists?
-      cookies[:id] = params[:id]
+    if User.where(name: params[:name]).exists?
+      cookies[:id] = User.where(name: params[:name]).first.id
       redirect_to users_path
     else
       flash[:danger] = 'User doesn\'t exist!'

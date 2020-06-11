@@ -20,7 +20,7 @@
   </p>
 <% end %>
   <hr>
-  <p class="user-tab">Hello, <a href="<%= users_path + "/" + @current_user.id.to_s %>"><%= @current_user.name %></a> <%= sanitize @logout %></p>
+  <p class="user-tab">Hello, <a href="<%= users_path + "/" + @current_user.id.to_s %>"><%= @current_user.name %></a> - <a href="<%= signout_path %>" class="logout">Logout!</a></p>
   <hr>
   <a href="<%= users_path %>">All Users</a>
   <hr>
