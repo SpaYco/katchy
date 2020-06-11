@@ -11,17 +11,17 @@ describe 'Users', type: :feature do
     end
     click_button 'Login'
     visit '/groups/new'
-      fill_in 'group[name]', with: 'first'
-      fill_in 'group[icon]', with: 'https://i.imgur.com/CUG0Aof.jpg'
+    fill_in 'group[name]', with: 'first'
+    fill_in 'group[icon]', with: 'https://i.imgur.com/CUG0Aof.jpg'
     click_button 'Submit'
   end
   it 'creates a recipe' do
     visit '/recipes/new'
-      fill_in 'recipe[name]', with: 'pizza'
-      select 'first', from: 'recipe[group_id]'
-      fill_in 'recipe[ingredients]', with: 'first\nsecond\nthird'
-      fill_in 'recipe[video]', with: 'https://youtu.be/p1NURlot8Lo'
-      fill_in 'recipe[amount]', with: 45
+    fill_in 'recipe[name]', with: 'pizza'
+    select 'first', from: 'recipe[group_id]'
+    fill_in 'recipe[ingredients]', with: 'first\nsecond\nthird'
+    fill_in 'recipe[video]', with: 'https://youtu.be/p1NURlot8Lo'
+    fill_in 'recipe[amount]', with: 45
     click_button 'Submit'
     expect(page).to have_content 'pizza'
   end
