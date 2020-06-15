@@ -205,12 +205,13 @@ form:not(.search_form) {
     border-radius: 15px;
     background-color: #5758BB;
     padding: 10vh 6vw;
+    max-height: 90vh;
     display: flex;
     align-items: center;
     justify-self: center;
     flex-direction: column;
     position: relative;
-
+    overflow: auto;
 }
 label {
     color: whitesmoke;

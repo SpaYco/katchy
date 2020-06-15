@@ -10,7 +10,8 @@ class RecipesController < ApplicationController
   end
 
   def search
-    @recipes = Recipe.where(name: params[:search]).includes([:author])
+    search = params[:search]
+    @recipes = Recipe.where('name LIKE ? OR ingredients LIKE ?', "%#{search}%", "%#{search}%").includes([:author])
   end
 
   def new
@@ -43,7 +44,6 @@ class RecipesController < ApplicationController
 
   def set_user
     @current_user = User.find(cookies[:id])
-    @logout = "- <a href=\"#{signout_path}\" class=\"logout\">Logout!</a>"
   end
 
   def user_params
