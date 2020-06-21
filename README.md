@@ -4,20 +4,20 @@
 ## What it does
 - Create Users
 - Create a group where you can add recipes in
-- Create a Recipe pages where you show the ingrediants, and link a video showing how you do it
+- Create Recipe pages where you show the ingredients, and link a video showing how you do it
 
 ## Built With
 - Ruby
 - Ruby on Rails
 - VSCode
 
-## Depbloyment
+## Deployment
 
 You can check a live demo [HERE](https://hidden-fjord-31358.herokuapp.com/)
 
 ## Setup
 
-Instal gems with:
+Install gems with:
 
 ```
 bundle install
@@ -43,7 +43,7 @@ Open `http://localhost:3000/` in your browser.
 ## Run tests
 
 ```
-    rpsec
+    RSpec
 ```
 
 ## Authors
@@ -63,7 +63,7 @@ Design idea by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella
 a Special thanks to @eduardinni for making a ruby method that grabs IDs from any YouTube links, check it out [here](https://gist.github.com/eduardinni/ff0011ba8c411fa06253c1d5850373cf)
 
 ## 🤝 Contributing
-Contributions, issues and feature requests are welcome!
+Contributions, issues, and feature requests are welcome!
 
 ## Show your support
 Give a ⭐️ if you like this project!
