@@ -1,0 +1,6 @@
+<% @groups.each do |u| %>
+<div class="groups-container">
+<a href="<%=groups_path + "/" + u.id.to_s%>"><%= u.name %></a>
+<img src="<%=u.icon%>" alt="<%= u.name%>">
+</div>
+<% end %>

@@ -1,0 +1,21 @@
+<div class="form-div">
+<%= form_for @recipe do |f|%>
+<% if @recipe.errors.any? %> <div id="error_explanation"> <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this post from being saved:</h2> <ul> <% @recipe.errors.full_messages.each do |msg| %> <li><%= msg %></li> <% end %> </ul> </div> <% end %> 
+<label for="name">Recipe name</label>
+<%= f.text_field :name%>
+<br>
+<label for="group_id">Group name</label>
+<%= f.collection_select :group_id, Group.order(:name),:id,:name, include_blank: true %>
+<br>
+<label for="ingredients">Recipe Ingredients (each in a line)</label>
+<%= f.text_area :ingredients%>
+<br>
+<label for="video">video link</label>
+<%= f.text_field :video %>
+<br>
+<label for="amount">amount (in minutes)</label>
+<%= f.number_field :amount%>
+<br>
+<%= f.submit "Submit"%>
+<%end%>
+</div>

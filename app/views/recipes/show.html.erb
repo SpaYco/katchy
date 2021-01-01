@@ -1,0 +1,8 @@
+<div class="recipe-container" style="border: none;">
+<p class="name"><a class="n-link" href="<%= recipes_path + "/" + @recipe.id.to_s%>"><%= @recipe.name %></a> By <a href="<%= users_path + "/" + @recipe.author.id.to_s%>"><%= @recipe.author.name%></a></p>
+<p>Ingredients: </p>
+<div class="ingredients no-overflow"> <%= simple_format(@recipe.ingredients).html_safe%></div>
+<p> How To Video: </p>
+<iframe class="embed high-vid" src="https://www.youtube.com/embed/<%= get_youtube_id(@recipe.video) %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>amount: <%= @recipe.amount %></p>
+</div>
